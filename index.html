@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shinora Feedback</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>&bull; Your Valuable Feedback &bull;</h1>
+      <div class="underline"></div>
+      <div class="icon_wrapper">
+        <img src="logo.png" alt="logo" style="margin-left: 30%" />
+      </div>
+      <form action="#" method="post" id="contact_form">
+        <div class="name">
+          <label for="name"></label>
+          <input
+            type="text"
+            placeholder="My name is"
+            name="name"
+            id="name_input"
+            required
+          />
+        </div>
+        <div class="email">
+          <label for="email"></label>
+          <input
+            type="email"
+            placeholder="My e-mail is"
+            name="email"
+            id="email_input"
+            required
+          />
+        </div>
+        <div class="telephone">
+          <label for="name"></label>
+          <input
+            type="text"
+            placeholder="My number is"
+            name="telephone"
+            id="telephone_input"
+            required
+          />
+        </div>
+        <div class="subject">
+          <label for="rating"></label>
+          <select
+            placeholder="Subject line"
+            name="rating"
+            id="subject_input"
+            required
+          >
+            <option disabled hidden selected>Rating</option>
+            <option style="background-color: #055d5f">1 - Worst</option>
+            <option style="background-color: #055d5f">2 - Bad</option>
+            <option style="background-color: #055d5f">3 - Average</option>
+            <option style="background-color: #055d5f">4 - Good</option>
+            <option style="background-color: #055d5f">5 - Best</option>
+          </select>
+        </div>
+        <div class="message">
+          <label for="message"></label>
+          <textarea
+            name="message"
+            placeholder="Feedback"
+            id="message_input"
+            cols="30"
+            rows="5"
+          ></textarea>
+        </div>
+        <div class="submit">
+          <input type="submit" value="Send Message" id="form_button" />
+        </div>
+      </form>
+      <!-- // End form -->
+    </div>
+    <!-- // End #container -->
+    <script>
+      const form = document.querySelector("#contact_form");
+      const submitButton = document.querySelector("#form_button");
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzz0ablsqDwwY8OMILs-hi94T5jzKtESW0sgMitLwuDFLFWRtD1eokw0m9tRxAQg2fR/exec";
+
+      form.addEventListener("submit", (e) => {
+        submitButton.disabled = true;
+        e.preventDefault();
+        let requestBody = new FormData(form);
+        fetch(scriptURL, { method: "POST", body: requestBody })
+          .then((response) => {
+            alert("Thanks! You Feedback matters a lot for us.", response);
+            form.reset();
+            submitButton.disabled = false;
+          })
+          .catch((error) => {
+            alert("Error!", error.message);
+            submitButton.disabled = false;
+          });
+      });
+    </script>
+  </body>
+</html>
