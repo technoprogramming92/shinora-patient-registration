@@ -64,16 +64,16 @@ h1 {
 }
 
 .icon_wrapper {
-  margin: 50px auto 0;
-  width: 100%;
+  display: flex; /* Enables flexbox layout */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+
+  margin: 30px auto; /* Removes margin and centers the wrapper horizontally */
 }
 
-.icon {
-  display: block;
-  fill: #f3f0ef;
-  height: 50px;
-  margin: 0 auto;
-  width: 50px;
+.responsive_logo {
+  max-width: 100%; /* Maximum width of image is 100% of its container */
+  height: auto; /* Height is auto to maintain aspect ratio */
 }
 
 .email {
