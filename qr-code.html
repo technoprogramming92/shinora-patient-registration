@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shinora Feedback</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>&bull; Your Valuable Feedback &bull;</h1>
+      <div class="underline"></div>
+      <div class="icon_wrapper">
+        <img src="feedback-logo.png" alt="logo" class="responsive_logo" />
+      </div>
+      <form action="index.html" method="post" id="contact_form">
+        <p style="color: aliceblue; text-align: center">
+          Please Scan following QR Code to post Google Review.
+        </p>
+        <div class="icon_wrapper">
+          <img src="shinora-qr.png" alt="logo" class="responsive_logo" />
+        </div>
+        <div class="submit">
+          <input type="submit" value="DONE" id="form_button" />
+        </div>
+      </form>
+      <!-- // End form -->
+    </div>
+    <!-- // End #container -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact_form");
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+          // Perform any checks or operations here
+          // Redirect manually after operations
+          window.location.href = "index.html";
+        });
+      });
+    </script>
+  </body>
+</html>

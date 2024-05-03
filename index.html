@@ -44,32 +44,7 @@
             required
           />
         </div>
-        <div class="subject">
-          <label for="rating"></label>
-          <select
-            placeholder="Subject line"
-            name="rating"
-            id="subject_input"
-            required
-          >
-            <option disabled hidden selected>Rating</option>
-            <option style="background-color: #055d5f">1 - Worst</option>
-            <option style="background-color: #055d5f">2 - Bad</option>
-            <option style="background-color: #055d5f">3 - Average</option>
-            <option style="background-color: #055d5f">4 - Good</option>
-            <option style="background-color: #055d5f">5 - Best</option>
-          </select>
-        </div>
-        <div class="message">
-          <label for="message"></label>
-          <textarea
-            name="message"
-            placeholder="Feedback"
-            id="message_input"
-            cols="30"
-            rows="5"
-          ></textarea>
-        </div>
+
         <div class="submit">
           <input type="submit" value="Send Message" id="form_button" />
         </div>
@@ -89,9 +64,8 @@
         let requestBody = new FormData(form);
         fetch(scriptURL, { method: "POST", body: requestBody })
           .then((response) => {
-            alert("Thanks! You Feedback matters a lot for us.", response);
-            form.reset();
-            submitButton.disabled = false;
+            alert("Thanks! Now be ready for Google Review");
+            window.location.href = "qr-code.html";
           })
           .catch((error) => {
             alert("Error!", error.message);
