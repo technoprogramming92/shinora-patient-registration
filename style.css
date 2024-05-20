@@ -41,11 +41,12 @@ textarea {
   max-width: 768px;
   margin: 60px auto;
   position: relative;
+  padding: 37.5px;
+  box-sizing: border-box;
 }
 
 form {
-  padding: 37.5px;
-  margin: 50px 0;
+  margin: 0;
 }
 
 h1 {
@@ -55,34 +56,54 @@ h1 {
   letter-spacing: 7px;
   text-align: center;
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .underline {
   border-bottom: solid 2px #f3f0ef;
-  margin: -0.512em auto;
+  margin: -0.512em auto 1.5em auto;
   width: 80px;
 }
 
 .icon_wrapper {
-  display: flex; /* Enables flexbox layout */
-  justify-content: center; /* Centers content horizontally */
-  align-items: center; /* Centers content vertically */
-
-  margin: 30px auto; /* Removes margin and centers the wrapper horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
 }
 
 .responsive_logo {
-  max-width: 100%; /* Maximum width of image is 100% of its container */
-  height: auto; /* Height is auto to maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
 }
 
-.email {
-  float: right;
-  width: 45%;
+.form_group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form_group .form_field {
+  width: 48%;
+  margin-bottom: 1.875em;
+}
+
+.form_group .form_field_full {
+  width: 100%;
+  margin-bottom: 1.875em;
+}
+
+label {
+  display: block;
+  font-size: 0.875em;
+  margin-bottom: 0.5em;
+  color: #f3f0ef;
+  text-transform: uppercase;
 }
 
 input[type="text"],
-[type="email"],
+input[type="email"],
+input[type="date"],
 select,
 textarea {
   background: none;
@@ -92,56 +113,47 @@ textarea {
   font-size: 1em;
   font-weight: 400;
   letter-spacing: 1px;
-  margin: 0em 0 1.875em 0;
   padding: 0 0 0.875em 0;
   text-transform: uppercase;
   width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 input[type="text"]:focus,
-[type="email"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus,
 textarea:focus {
   outline: none;
   padding: 0 0 0.875em 0;
 }
 
-.message {
-  float: none;
-}
-
-.name {
-  float: left;
-  width: 45%;
-}
-
 select {
-  background: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png")
-    no-repeat right;
+  background: none;
+  border: none;
+  border-bottom: solid 2px #f3f0ef;
+  color: #f3f0ef;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 400;
+  height: auto;
+  line-height: 1.5em;
+  margin: 0;
   outline: none;
-  -moz-appearance: none;
+  padding: 0.875em 1em;
+  width: 100%;
+  appearance: none;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: border-box;
 }
 
-select::-ms-expand {
-  display: none;
-}
-
-.subject {
-  width: 100%;
-}
-
-.telephone {
-  width: 100%;
+select option {
+  background: #055d5f;
+  color: #f3f0ef;
+  padding: 10px;
 }
 
 textarea {
@@ -181,11 +193,9 @@ textarea {
   outline: none;
   padding: 20px 35px;
   text-transform: uppercase;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
+  width: 100%;
+  margin-top: 1.875em;
 }
 
 #form_button:hover {
@@ -194,9 +204,8 @@ textarea {
 }
 
 @media screen and (max-width: 768px) {
-  #container {
-    margin: 20px auto;
-    width: 95%;
+  .form_group .form_field {
+    width: 100%;
   }
 }
 
@@ -229,7 +238,8 @@ textarea {
   }
 
   input[type="text"],
-  [type="email"],
+  input[type="email"],
+  input[type="date"],
   select,
   textarea {
     font-size: 0.875em;
